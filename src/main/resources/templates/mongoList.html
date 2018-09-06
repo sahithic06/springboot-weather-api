@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+<style>
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<title>Mongo Data</title>
+</head>
+<body>
+	<h2>Data fetched from MongoDB</h2>
+	<table id="customers" style="width:100%">
+  		<tr>
+  			<th>Id</th>
+    		<th>Firstname</th>
+    		<th>Lastname</th> 
+    	</tr>
+    
+		<tr th:each="person,iterStat : ${mongoli}" }>
+			<td><span th:text="${person.id}"></span></td>
+			<td><span th:text="${person.firstName}"></span></td>
+			<td><span th:text="${person.lastName}"></span></td>
+		</tr>
+	</table>
+
+</body>
+</html>

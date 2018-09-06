@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+<style>
+#weather {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#weather td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#weather th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+<title>Weather Data</title>
+</head>
+<body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVOhgwld91lgU5Vm2bRDadHwGTQMX1dhAkxMVG4EeSvIGErSAt7g" >
+	<h2>Weather Data</h2>
+<table id="weather" style="width:100%">
+  		<tr>
+  			<th>City</th>
+    		<th>Latitude</th>
+    		<th>Longitude</th> 
+    		<th>Weather</th> 
+    	</tr>	
+	<tr th:each="weather,iterStat : ${weatherData}" }>
+			<td><span th:text="${weather.getName()}"></span></td>
+			<td><span th:text="${weather.getLat()}"></span></td>
+			<td><span th:text="${weather.getLon()}"></span></td>
+			<td><span th:text="${weather.getWeatherDescription()}"></span></td>
+			
+		</tr>
+
+</tr>
+</table>
+</body>
+</html>

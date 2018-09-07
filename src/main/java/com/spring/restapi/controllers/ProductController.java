@@ -29,7 +29,7 @@ public class ProductController {
 	@Autowired
 	ProductRepository productRepository;
 
-	
+	//UI
 	@RequestMapping(method=RequestMethod.GET, value="/")
 	public String indexPage() {
 		
@@ -43,9 +43,10 @@ public class ProductController {
 		return "mongoList";
     }
 	
-	@RequestMapping(method=RequestMethod.GET, value="/productJson")
+	//CRUD operations
+	@RequestMapping(method=RequestMethod.GET, value="/productsJson")
 	@ResponseBody
-	public Iterable<Product> productJson() {
+	public Iterable<Product> getAllProducts() {
    		return productRepository.findAll();
     }
 	
@@ -60,13 +61,13 @@ public class ProductController {
 	
 	@RequestMapping(method=RequestMethod.POST, value="/productJson")
     @ResponseBody
-    public ResponseEntity<String> save(@RequestBody Product product) {
+    public ResponseEntity<String> saveProducts(@RequestBody Product product) {
 		productRepository.save(product);
         return ResponseEntity.ok().body(new String("Resource successFully created!!!"));
     }
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/productJson/{id}")
-    public ResponseEntity<String> delete(@PathVariable(value="id") String id) {
+    public ResponseEntity<String> deleteProductById(@PathVariable(value="id") String id) {
 		productRepository.deleteById(id);   		
 	    return ResponseEntity.ok().body(new String("Deleted successFully"));
 	    

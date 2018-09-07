@@ -8,15 +8,16 @@
     </head>
     <body background="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SZMXphYEipbdr8zi/beautiful-clouds-close-up-weather-background_skp3rq4r__F0000.png">
 		<h2>Weather API</h2>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li th:classappend="${module == 'home' ? 'active' : ''}">
+        <div>
+          <ul>
+            <li>
               <a href="#" th:href="@{/product}">MONGO DATA</a>
             </li>
-            <li th:classappend="${module == 'tasks' ? 'active' : ''}">
+            <li>
               <a href="#" th:href="@{/weather}">WEATHER DATA</a>
             </li>
-          </ul>  
+          </ul>
+          
         </div>
      
 

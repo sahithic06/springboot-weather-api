@@ -12,6 +12,11 @@ public class WeatherUrl {
 
 	private String url;
 	private String apiKey;
+	
+	public WeatherUrl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getApiKey() {
 		return apiKey;
@@ -29,10 +34,5 @@ public class WeatherUrl {
 		this.url = url;
 	}
 
-	public WeatherUrl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
 
 }

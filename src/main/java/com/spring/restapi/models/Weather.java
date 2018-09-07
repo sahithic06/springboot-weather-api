@@ -30,6 +30,14 @@ public class Weather implements Serializable {
 		return new Weather();
 	}
 	
+	public Weather() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Weather(Weather weather) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public double getLat() {
 		return lat;
@@ -57,16 +65,6 @@ public class Weather implements Serializable {
 	public void setWeatherDescription(String weatherDescription) {
 		this.weatherDescription = weatherDescription;
 	}
-
-	public Weather() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Weather(Weather weather) {
-		// TODO Auto-generated constructor stub
-	}
-
 
 	@JsonProperty("weather")
 	public void setWeather(List<Map<String, Object>> weatherEntries) {

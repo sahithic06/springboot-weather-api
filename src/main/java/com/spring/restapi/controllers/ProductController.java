@@ -24,7 +24,7 @@ import org.springframework.ui.Model;
 
 
 @Controller
-public class ProductMVCController {
+public class ProductController {
 
 	@Autowired
 	ProductRepository productRepository;
@@ -44,8 +44,8 @@ public class ProductMVCController {
     }
 	
 	@RequestMapping(method=RequestMethod.GET, value="/productJson")
-    @ResponseBody
-    public Iterable<Product> productJson() {
+	@ResponseBody
+	public Iterable<Product> productJson() {
    		return productRepository.findAll();
     }
 	

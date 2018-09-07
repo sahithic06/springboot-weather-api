@@ -58,14 +58,12 @@ public class WeatherController {
 			    .buildAndExpand(city.getCity(),weatherData.getApiKey());
 		
 		String uri = uriComponents.toUriString();
-		System.out.println(uri);
 		
 		ResponseEntity<String> resp= restTemp.exchange(uri, HttpMethod.GET, null, String.class);
 		ObjectMapper mapper = new ObjectMapper();
 		Weather weather = mapper.readValue(resp.getBody(), Weather.class);
 		model.addAttribute("weatherData", weather);	
 		
-		System.out.println(weather.getLon()+weather.getWeatherDescription()+weather.getName());
 		return "weatherDetails";
 	}
 	

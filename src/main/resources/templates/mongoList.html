@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+
 <head>
 <style>
-#customers {
+#products {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
 
-#customers td, #customers th {
+#products td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#customers th {
+#products th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -24,19 +24,34 @@
 </style>
 <title>Mongo Data</title>
 </head>
-<body>
+<body background="https://cdn.shopify.com/s/files/1/0533/2089/files/5-websites-to-download-free-subtle-textures-subtle.jpg?5724472906039650661">
 	<h2>Data fetched from MongoDB</h2>
-	<table id="customers" style="width:100%">
+	  <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li th:classappend="${module == 'home' ? 'active' : ''}">
+              <a href="#" th:href="@{/product}">MONGO DATA</a>
+            </li>
+            <li th:classappend="${module == 'tasks' ? 'active' : ''}">
+              <a href="#" th:href="@{/weather}">WEATHER DATA</a>
+            </li>
+          </ul>
+          
+        </div>
+     
+	<table id="products" style="width:100%">
   		<tr>
   			<th>Id</th>
-    		<th>Firstname</th>
-    		<th>Lastname</th> 
+    		<th>Product</th>
+    		<th>Product Type</th> 
+    		<th>Description</th>
     	</tr>
     
-		<tr th:each="person,iterStat : ${mongoli}" }>
-			<td><span th:text="${person.id}"></span></td>
-			<td><span th:text="${person.firstName}"></span></td>
-			<td><span th:text="${person.lastName}"></span></td>
+		<tr th:each="products,iterStat : ${mongoData}" >
+			<td><span th:text="${products.id}"></span></td>
+			<td><span th:text="${products.product}"></span></td>
+			<td><span th:text="${products.productType}"></span></td>
+			<td><span th:text="${products.description}"></span></td>
+			
 		</tr>
 	</table>
 

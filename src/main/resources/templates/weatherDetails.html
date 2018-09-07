@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+
 <head>
 <style>
 #weather {
@@ -24,9 +24,23 @@
 </style>
 <title>Weather Data</title>
 </head>
-<body background="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVOhgwld91lgU5Vm2bRDadHwGTQMX1dhAkxMVG4EeSvIGErSAt7g" >
+<body background="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/SZMXphYEipbdr8zi/beautiful-clouds-close-up-weather-background_skp3rq4r__F0000.png" >
 	<h2>Weather Data</h2>
+	
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li th:classappend="${module == 'home' ? 'active' : ''}">
+              <a href="#" th:href="@{/product}">MONGO DATA</a>
+            </li>
+            <li th:classappend="${module == 'tasks' ? 'active' : ''}">
+              <a href="#" th:href="@{/weather}">WEATHER DATA</a>
+            </li>
+          </ul>
+          
+        </div>
+     
 <table id="weather" style="width:100%">
+
   		<tr>
   			<th>City</th>
     		<th>Latitude</th>

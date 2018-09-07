@@ -1,18 +1,22 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript">
-    function open_win()
-    {
-    window.open("http://localhost:8081/weather");
-    window.open("http://localhost:8081/persons");
-    window.close("http://localhost:8081/")
-    
-    }
-    </script>
-</head>
-<body onload="open_win()">
-</body>
+
+  <head>
+
+  </head>
+  <body background="https://cdn.shopify.com/s/files/1/0533/2089/files/5-websites-to-download-free-subtle-textures-subtle.jpg?5724472906039650661">
+  <h2>Weather Api and MongoDB</h2>
+      <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li th:classappend="${module == 'home' ? 'active' : ''}">
+              <a href="#" th:href="@{/product}">MONGO DATA</a>
+            </li>
+            <li th:classappend="${module == 'tasks' ? 'active' : ''}">
+              <a href="#" th:href="@{/weather}">WEATHER DATA</a>
+            </li>
+          </ul>
+          
+        </div>
+     
+  </body>
 </html>

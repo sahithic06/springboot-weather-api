@@ -1,5 +1,5 @@
 .div {
-    background: teal;
+    background: #7AA5D2;
     padding: 10px 20px;
     display: block;
     margin: 10px;
@@ -33,6 +33,6 @@
 #table th {
 
     text-align: left;
-    background-color: teal;
+    background-color: #7AA5D2;
     color: white;
 }

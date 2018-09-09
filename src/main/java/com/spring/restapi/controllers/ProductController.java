@@ -29,7 +29,6 @@ public class ProductController {
 	@Autowired
 	ProductRepository productRepository;
 
-	//UI
 	@RequestMapping(method=RequestMethod.GET, value="/")
 	public String indexPage() {
 		
@@ -43,7 +42,6 @@ public class ProductController {
 		return "mongoList";
     }
 	
-	//CRUD operations
 	@RequestMapping(method=RequestMethod.GET, value="/productsJson")
 	@ResponseBody
 	public Iterable<Product> getAllProducts() {

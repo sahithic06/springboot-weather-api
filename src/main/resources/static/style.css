@@ -1,0 +1,38 @@
+.div {
+    background: teal;
+    padding: 10px 20px;
+    display: block;
+    margin: 10px;
+  
+}
+.link{
+ color: white;
+ padding: 10px 20px;
+}
+
+.link:hover{
+	color:black;
+}
+
+.link:active{
+ background:grey;
+}
+
+#table {
+   
+    border-collapse: collapse;
+ 	
+}
+
+#table td, #table th {
+    border: 1px solid black;
+    padding: 5px;
+   
+}
+
+#table th {
+
+    text-align: left;
+    background-color: teal;
+    color: white;
+}

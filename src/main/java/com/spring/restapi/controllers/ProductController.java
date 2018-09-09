@@ -33,7 +33,7 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.GET, value="/")
 	public String indexPage() {
 		
-		return "index";
+		 return "redirect:" + "/product";
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/product")

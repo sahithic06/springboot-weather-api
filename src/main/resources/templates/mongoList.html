@@ -2,44 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<style>
-#products {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#products td, #products th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#products th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-}
-</style>
 <title>Mongo Data</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body background="https://cdn.shopify.com/s/files/1/0533/2089/files/5-websites-to-download-free-subtle-textures-subtle.jpg?5724472906039650661">
 	<h2>Data fetched from MongoDB</h2>
-	  <div>
-          <ul>
-            <li>
-              <a href="#" th:href="@{/product}">MONGO DATA</a>
-            </li>
-            <li>
-              <a href="#" th:href="@{/weather}">WEATHER DATA</a>
-            </li>
-          </ul>
-          
-        </div>
-     
-	<table id="products" style="width:100%">
-  		<tr>
+	<div class="div">
+		<a  href="#" th:href="@{/product}" style="text-decoration: none"class="link">MONGO DATA</a>
+        <a  href="#" th:href="@{/weather}" style="text-decoration: none"class="link">WEATHER DATA</a>
+    </div>
+    <table id="table" style="width:100%">
+		<tr>
   			<th>Id</th>
     		<th>Product</th>
     		<th>Product Type</th> 
@@ -54,6 +27,5 @@
 			
 		</tr>
 	</table>
-
 </body>
 </html>

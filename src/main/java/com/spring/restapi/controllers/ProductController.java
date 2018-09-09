@@ -42,6 +42,7 @@ public class ProductController {
 		return "mongoList";
     }
 	
+	//CRUD operations
 	@RequestMapping(method=RequestMethod.GET, value="/productsJson")
 	@ResponseBody
 	public Iterable<Product> getAllProducts() {

@@ -60,6 +60,7 @@ public class WeatherController {
 		String uri = uriComponents.toUriString();
 		
 		ResponseEntity<String> resp= restTemp.exchange(uri, HttpMethod.GET, null, String.class);
+		
 		ObjectMapper mapper = new ObjectMapper();
 		Weather weather = mapper.readValue(resp.getBody(), Weather.class);
 		model.addAttribute("weatherData", weather);	

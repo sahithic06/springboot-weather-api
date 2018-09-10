@@ -11,21 +11,22 @@
 		<a  href="#" th:href="@{/product}" style="text-decoration: none"class="link">MONGO DATA</a>
         <a  href="#" th:href="@{/weather}" style="text-decoration: none"class="link">WEATHER DATA</a>
     </div>
-    <table id="table" style="width:100%">
-		<tr>
-  			<th>Id</th>
-    		<th>Product</th>
-    		<th>Product Type</th> 
-    		<th>Description</th>
-    	</tr>
+    <div class="div1">
+	   	 <table id="table" style="width:100%">
+			<tr>
+  				<th>Id</th>
+    			<th>Product</th>
+ 		   		<th>Product Type</th> 
+    			<th>Description</th>
+  		  	</tr>
     
-		<tr th:each="products,iterStat : ${mongoData}" >
-			<td><span th:text="${products.id}"></span></td>
-			<td><span th:text="${products.product}"></span></td>
-			<td><span th:text="${products.productType}"></span></td>
-			<td><span th:text="${products.description}"></span></td>
-			
-		</tr>
-	</table>
+			<tr th:each="products,iterStat : ${mongoData}" >
+				<td><span th:text="${products.id}"></span></td>
+				<td><span th:text="${products.product}"></span></td>
+				<td><span th:text="${products.productType}"></span></td>
+				<td><span th:text="${products.description}"></span></td>		
+			</tr>
+		</table>
+	</div>
 </body>
 </html>

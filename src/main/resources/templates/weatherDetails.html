@@ -11,22 +11,23 @@
 		<a  href="#" th:href="@{/product}" style="text-decoration: none"class="link">MONGO DATA</a> 
 		<a  href="#" th:href="@{/weather}" style="text-decoration: none"class="link">WEATHER DATA</a>
 	</div>
-     
-	<table id="table" style="width:100%">
-		<tr>
-  			<th>City</th>
-    		<th>Latitude</th>
-    		<th>Longitude</th> 
-    		<th>Weather</th> 
-    	</tr>	
-		<tr th:each="weather,iterStat : ${weatherData}" }>
-			<td><span th:text="${weather.getName()}"></span></td>
-			<td><span th:text="${weather.getLat()}"></span></td>
-			<td><span th:text="${weather.getLon()}"></span></td>
-			<td><span th:text="${weather.getWeatherDescription()}"></span></td>
+    
+    <div class="div1">
+		<table id="table" style="width:100%">
+			<tr>
+  				<th>City</th>
+    			<th>Latitude</th>
+    			<th>Longitude</th> 
+    			<th>Weather</th> 
+    		</tr>	
+			<tr th:each="weather,iterStat : ${weatherData}" }>
+				<td><span th:text="${weather.getName()}"></span></td>
+				<td><span th:text="${weather.getLat()}"></span></td>
+				<td><span th:text="${weather.getLon()}"></span></td>
+				<td><span th:text="${weather.getWeatherDescription()}"></span></td>
 			
-		</tr>
-
-	</table>
+			</tr>
+		</table>
+	</div> 
 </body>
 </html>

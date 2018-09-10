@@ -1,6 +1,20 @@
-1. Download and unzip the project to local repository 
-2. Generate API keys for open weatehr API at https://openweathermap.org/appid 
-3. Setup MongoDb on local machine and run mongodb instance
-4. Create a database, collection and insert records
-5. Run DemoApplication.java 
-6. Send a request localhost
+# Spring Boot Weather API and MongoDB
+
+### Prerequisites
+  * JDK 1.8.X
+  * Maven 3.3.X
+  * MongoDB
+  * Open weather map API keys
+### Generating keys
+  * Visit https://openweathermap.org/appid
+  * SignUp, Select the package and generate API keys
+### MongoDB
+  * Run MongoDB Instance
+  * Create a database (refer to application.properties for name)
+  * Create a collection (refer to products.java for the model)
+  * Create records using Postman 
+      ```POST /api/product```
+### Run 
+  * Download/Clone the project on to your local machine
+  * Run the on your local machine
+  * Send a request to http://localhost:8080/

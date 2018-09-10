@@ -43,13 +43,13 @@ public class ProductController {
     }
 	
 	//CRUD operations
-	@RequestMapping(method=RequestMethod.GET, value="/productsJson")
+	@RequestMapping(method=RequestMethod.GET, value="api/products")
 	@ResponseBody
 	public Iterable<Product> getAllProducts() {
    		return productRepository.findAll();
     }
 	
-	@RequestMapping(method=RequestMethod.GET, value="/productJson/{id}")
+	@RequestMapping(method=RequestMethod.GET, value="api/product/{id}")
 	public ResponseEntity<Optional<Product>> getProductById(@PathVariable(value="id") String id) {
 		Optional<Product> prod = productRepository.findById(id);
 		if(prod == null) {
@@ -58,14 +58,14 @@ public class ProductController {
 	    return ResponseEntity.ok().body(prod);
 	 }
 	
-	@RequestMapping(method=RequestMethod.POST, value="/productJson")
+	@RequestMapping(method=RequestMethod.POST, value="api/product")
     @ResponseBody
     public ResponseEntity<String> saveProducts(@RequestBody Product product) {
 		productRepository.save(product);
         return ResponseEntity.ok().body(new String("Resource successFully created!!!"));
     }
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/productJson/{id}")
+	@RequestMapping(method=RequestMethod.DELETE, value="api/product/{id}")
     public ResponseEntity<String> deleteProductById(@PathVariable(value="id") String id) {
 		productRepository.deleteById(id);   		
 	    return ResponseEntity.ok().body(new String("Deleted successFully"));

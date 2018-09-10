@@ -5,6 +5,7 @@
     margin: 10px;
   
 }
+
 .div1 {
 	padding: 10px 20px;
 }
@@ -23,9 +24,7 @@
 }
 
 #table {
-   
     border-collapse: collapse;
- 	
 }
 
 #table td, #table th {
@@ -35,7 +34,6 @@
 }
 
 #table th {
-
     text-align: left;
     background-color: #7AA5D2;
     color: white;

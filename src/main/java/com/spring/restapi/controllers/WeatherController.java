@@ -27,45 +27,45 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.restapi.models.FormCityAttribute;
 import com.spring.restapi.models.Weather;
 import com.spring.restapi.models.WeatherUrl;
-
-@ComponentScan("com.spring.restapi.config")
-@Controller
-public class WeatherController {
 	
-	@Autowired
-	RestTemplate restTemp;
-	
-	@Autowired
-	private WeatherUrl weatherData;
-	
-	@RequestMapping(value = "/weather",method=RequestMethod.GET )
-	public String CityForm(Model model) {
+	@ComponentScan("com.spring.restapi.config")
+	@Controller
+	public class WeatherController {
 		
-		model.addAttribute("city", new FormCityAttribute());
-		return "formData";
+		@Autowired
+		RestTemplate restTemp;
+		
+		@Autowired
+		private WeatherUrl weatherData;
+		
+		@RequestMapping(value = "/weather",method=RequestMethod.GET )
+		public String CityForm(Model model) {
+			
+			model.addAttribute("city", new FormCityAttribute());
+			return "formData";
+		}
+		
+		@RequestMapping(value = "/weather",method=RequestMethod.POST )
+		public String getWeather(Model model, @ModelAttribute FormCityAttribute city) 
+				throws JsonParseException, JsonMappingException, IOException {
+			
+			UriComponents uriComponents = UriComponentsBuilder
+					.newInstance()
+					.scheme("http")
+					.host(weatherData.getUrl())
+				    .path("")
+				    .query("q={keyword}&appid={appid}")
+				    .buildAndExpand(city.getCity(),weatherData.getApiKey());
+			
+			String uri = uriComponents.toUriString();
+			
+			ResponseEntity<String> resp= restTemp.exchange(uri, HttpMethod.GET, null, String.class);
+			
+			ObjectMapper mapper = new ObjectMapper();
+			Weather weather = mapper.readValue(resp.getBody(), Weather.class);
+			model.addAttribute("weatherData", weather);	
+			
+			return "weatherDetails";
+		}
+		
 	}
-	
-	@RequestMapping(value = "/weather",method=RequestMethod.POST )
-	public String getWeather(Model model, @ModelAttribute FormCityAttribute city) 
-			throws JsonParseException, JsonMappingException, IOException {
-		
-		UriComponents uriComponents = UriComponentsBuilder
-				.newInstance()
-				.scheme("http")
-				.host(weatherData.getUrl())
-			    .path("")
-			    .query("q={keyword}&appid={appid}")
-			    .buildAndExpand(city.getCity(),weatherData.getApiKey());
-		
-		String uri = uriComponents.toUriString();
-		
-		ResponseEntity<String> resp= restTemp.exchange(uri, HttpMethod.GET, null, String.class);
-		
-		ObjectMapper mapper = new ObjectMapper();
-		Weather weather = mapper.readValue(resp.getBody(), Weather.class);
-		model.addAttribute("weatherData", weather);	
-		
-		return "weatherDetails";
-	}
-	
-}

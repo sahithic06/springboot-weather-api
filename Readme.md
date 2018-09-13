@@ -12,9 +12,10 @@
   * Run MongoDB Instance
   * Create a database (refer to application.properties for name)
   * Create a collection (refer to products.java for the model)
-  * Create records using Postman 
-      ```POST /api/product```
+ 
 ### Run 
   * Download/Clone the project on to your local machine
-  * Run the on your local machine
+  * Run the project on your machine
+  * Create records using Postman 
+      ```POST /api/product```
   * Send a request to http://localhost:8080/

@@ -11,15 +11,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-
-import com.spring.restapi.models.Product;
-import com.spring.restapi.repositories.ProductRepository;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.spring.restapi.models.Product;
+import com.spring.restapi.services.ProductService;
+
 import org.springframework.ui.Model;
 
 
@@ -27,7 +27,7 @@ import org.springframework.ui.Model;
 public class ProductController {
 
 	@Autowired
-	ProductRepository productRepository;
+	private ProductService productService;
 
 	@RequestMapping(method=RequestMethod.GET, value="/")
 	public String indexPage() {
@@ -38,7 +38,7 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.GET, value="/product")
 	public String product(Model model) {
 	
-        model.addAttribute("mongoData", productRepository.findAll());
+        model.addAttribute("mongoData", productService.getAllProducts());
 		return "mongoList";
     }
 	
@@ -46,12 +46,12 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.GET, value="api/products")
 	@ResponseBody
 	public Iterable<Product> getAllProducts() {
-   		return productRepository.findAll();
+   		return productService.getAllProducts();
     }
 	
 	@RequestMapping(method=RequestMethod.GET, value="api/product/{id}")
 	public ResponseEntity<Optional<Product>> getProductById(@PathVariable(value="id") String id) {
-		Optional<Product> prod = productRepository.findById(id);
+		Optional<Product> prod = productService.findProductById(id);
 		if(prod == null) {
 	        return ResponseEntity.notFound().build();
 	    }
@@ -61,13 +61,13 @@ public class ProductController {
 	@RequestMapping(method=RequestMethod.POST, value="api/product")
     @ResponseBody
     public ResponseEntity<String> saveProducts(@RequestBody Product product) {
-		productRepository.save(product);
+		productService.saveProduct(product);
         return ResponseEntity.ok().body(new String("Resource successFully created!!!"));
     }
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="api/product/{id}")
     public ResponseEntity<String> deleteProductById(@PathVariable(value="id") String id) {
-		productRepository.deleteById(id);   		
+		productService.deleteProductById(id);   		
 	    return ResponseEntity.ok().body(new String("Deleted successFully"));
 	    
 	}

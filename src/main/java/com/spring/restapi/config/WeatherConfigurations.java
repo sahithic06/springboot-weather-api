@@ -33,7 +33,7 @@ public class WeatherConfigurations {
 		c.setIgnoreUnresolvablePlaceholders(true);
 		return c;
 	}
-	
+
 	@Bean
 	public WeatherUrl weatherUrl() {
 		
@@ -42,4 +42,5 @@ public class WeatherConfigurations {
 		weatherUrl.setApiKey(apikey);
 		return weatherUrl;
 	}
+	
 }

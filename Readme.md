@@ -18,4 +18,4 @@
   * Run the project on your machine
   * Create records using Postman 
       ```POST /api/product```
-  * Send a request to http://localhost:8080/
+  * Send a request to http://localhost:8081/
